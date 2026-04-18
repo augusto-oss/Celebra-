@@ -1,0 +1,21 @@
+/* Cor principal personalizada */
+:root {
+    --bs-primary: #6f42c1; /* roxo (pode trocar) */
+}
+
+/* Botões primary */
+.btn-primary {
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+}
+
+/* Hover */
+.btn-primary:hover {
+    background-color: #59359c;
+    border-color: #59359c;
+}
+
+/* Cabeçalho da tabela */
+.table-dark {
+    background-color: #6f42c1;
+}
