@@ -1,3 +1,5 @@
+(BAIXE O BANCO DE DADOS MYSQL)
+
 # 🎉 Sistema Festa & Cia
 
 Sistema simples de gerenciamento de eventos desenvolvido em PHP com MySQL e Bootstrap.
