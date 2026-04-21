@@ -1,6 +1,6 @@
 (BAIXE O BANCO DE DADOS MYSQL)
 
-# 🎉 Sistema Festa & Cia
+# 🎉 Sistema Celebra+
 
 Sistema simples de gerenciamento de eventos desenvolvido em PHP com MySQL e Bootstrap.
 
