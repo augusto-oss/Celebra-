@@ -1,21 +1,22 @@
-/* Cor principal personalizada */
-:root {
-    --bs-primary: #6f42c1; /* roxo (pode trocar) */
+body {
+    background: #f5f7fb;
 }
 
-/* Botões primary */
-.btn-primary {
-    background-color: #6f42c1;
-    border-color: #6f42c1;
+.navbar {
+    background: linear-gradient(90deg, #4f46e5, #7c3aed);
 }
 
-/* Hover */
-.btn-primary:hover {
-    background-color: #59359c;
-    border-color: #59359c;
+.card {
+    border: none;
+    border-radius: 15px;
+    transition: 0.3s;
 }
 
-/* Cabeçalho da tabela */
-.table-dark {
-    background-color: #6f42c1;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.badge {
+    font-size: 12px;
 }

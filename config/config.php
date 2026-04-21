@@ -12,5 +12,5 @@ try {
     echo "Erro" . $e->getMessage();
     exit();
 }
-define('BASE_URL', 'http://localhost/Locadora De Bikes/');
+define('BASE_URL', 'http://localhost/festa_cia/index.php/');
 ?>

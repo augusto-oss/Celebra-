@@ -7,10 +7,10 @@ if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] == 0) {
     $nomeOriginal = $arquivo['name'];
     $tmp = $arquivo['tmp_name'];
 
-    // 🔒 Evita nomes duplicados
+    //  Evita nomes duplicados
     $novoNome = uniqid() . "_" . $nomeOriginal;
 
-    // 📁 Pasta de destino
+    //  Pasta de destino
     $pasta = "img/";
 
     // Cria a pasta se não existir

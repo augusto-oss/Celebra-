@@ -2,12 +2,15 @@
 // Conexão com o banco
 require __DIR__ . '/../config/config.php';
 
+$categorias = $db->query("SELECT * FROM categorias ORDER BY nome ASC")->fetchAll();
+
 // Se enviou o formulário
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Recebe os dados
     $titulo = $_POST['titulo'];
-    $categoria = $_POST['categoria'];
+    $categoria_id = $_POST['categoria_id'];
+    $destaque = $_POST['destaque'] ?? 0;
     $descricao = $_POST['descricao'];
     $local = $_POST['local_evento'];
     $convidados = $_POST['numero_convidados'];
@@ -28,19 +31,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Inserção no banco
     $sql = $db->prepare("
-        INSERT INTO eventos
-        (titulo, categoria, descricao, imagem, data_evento, local_evento, numero_convidados)
-        VALUES
-        (:titulo, :categoria, :descricao, :imagem, NOW(), :local, :convidados)
-    ");
+    INSERT INTO eventos
+    (titulo, categoria_id, descricao, imagem, data_evento, local_evento, numero_convidados, destaque)
+    VALUES
+    (:titulo, :categoria_id, :descricao, :imagem, NOW(), :local, :convidados, :destaque)
+");
 
     $sql->bindValue(':titulo', $titulo);
-    $sql->bindValue(':categoria', $categoria);
+    $sql->bindValue(':categoria_id', $categoria_id);
     $sql->bindValue(':descricao', $descricao);
     $sql->bindValue(':imagem', $nomeImagem);
     $sql->bindValue(':local', $local);
     $sql->bindValue(':convidados', $convidados);
-
+    $sql->bindValue(':destaque', $destaque);
     $sql->execute();
 
     // Volta pro index
@@ -74,7 +77,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="mb-3">
                 <label>Categoria</label>
-                <input type="text" name="categoria" class="form-control" required>
+                <a href="/festa_cia/actions/create_categoria.php" class="btn btn-sm btn-success mb-2">
+                    + Nova Categoria
+                </a>
+
+                <select name="categoria_id" class="form-control" required>
+                    <option value="">Selecione uma categoria</option>
+
+                    <?php foreach ($categorias as $cat): ?>
+                        <option value="<?= $cat['id'] ?>">
+                            <?= $cat['nome'] ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
             </div>
 
             <div class="mb-3">
@@ -96,6 +111,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label>Imagem</label>
                 <input type="file" name="imagem" class="form-control">
             </div>
+            <label>
+                <input type="checkbox" name="destaque" value="1">
+                Evento em destaque
+            </label>
 
             <button class="btn btn-primary">Cadastrar</button>
             <a href="../index.php" class="btn btn-secondary">Voltar</a>
