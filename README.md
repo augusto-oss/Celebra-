@@ -3,7 +3,7 @@ O arquivo `.sql` necessário para execução do projeto está incluído no repos
 
 # 🎉 Sistema Celebra+
 
-Sistema simples de gerenciamento de eventos desenvolvido em PHP com MySQL e Bootstrap.
+Sistema web de gerenciamento de eventos desenvolvido em PHP, MySQL e Bootstrap, permitindo cadastro, edição, listagem e exclusão de eventos de forma dinâmica.
 
 ## 📌 Funcionalidades
 
