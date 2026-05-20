@@ -1,4 +1,5 @@
-(BAIXE O BANCO DE DADOS MYSQL)
+## Banco de Dados
+O arquivo `.sql` necessário para execução do projeto está incluído no repositório.
 
 # 🎉 Sistema Celebra+
 
